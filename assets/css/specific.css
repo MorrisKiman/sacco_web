@@ -1,0 +1,13 @@
+/*Login Page*/
+.login_input{
+	width:90%;
+	padding: 12px 20px;
+	/*margin: 8px 0;*/
+	box-sizing: border-box;
+	font-size: 25px;
+	text-align:center;
+}
+.login_error{
+	color = #2a3132
+}
+
