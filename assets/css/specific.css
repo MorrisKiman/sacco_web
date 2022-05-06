@@ -8,7 +8,8 @@
 	text-align:center;
 }
 .login_error{
-	color: #00000;
+	color: red;
+	border:3px dotted;
 }
 
 .header_div{
@@ -90,8 +91,26 @@
 /*body ino css*/
 .body_content{
 	vertical-align: top;
-	border: 15px solid red;
-	height:;
+	top: 0px;
+	float:left;
+	padding: 0px;
+	
+}
+
+.ino_card{
+	border-radius:15px;
+	margin: 10px;
+	padding: 20px;
+	padding-top: 0px;
+	/*background-color:#2A3132;*/
+	background-image: url("../../assets/images/altBG.jpg");
+	color: white;
+	width: 300px;
+	height: 400px;
+}
+
+.ino_card:hover{
+	font-family: monospace;
 }
 /*body ino css*/
 

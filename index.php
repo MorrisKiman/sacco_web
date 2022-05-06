@@ -1,3 +1,61 @@
+<?php
+require_once 'index.php';
+session_start();
+$usr = 0;
+$msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
+
+$mysqli = new mysqli("localhost", "root", "morris", "sacco") or die(mysqli_error($mysqli));
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+	if (ISSET ($_POST['login']) && !empty ($_POST['username']) && !empty('password') && !empty($_POST['logger'])){
+	//get them variables
+	$uname = $_POST['username'];
+	$passwd = $_POST['password'];
+	$tbl = $_POST['logger'];
+	
+	//check who is logging in
+	if($tbl == 1){
+		$result = $mysqli -> query ("select * from teller where Teller_Fname='".$uname."'AND TellerPass='".$passwd."' limit 1");	
+		$usr = 1;
+		} elseif ($tbl == 2){
+			$result = $mysqli -> query("select * from attendant where AttendantFname='".$uname."'AND AttendantPass='".$passwd."' limit 1");		
+			$usr = 2;
+		} elseif ($tbl == 3){
+			$result = $mysqli -> query("select * from boss where UserName='".$uname."'AND Password='".$passwd."' limit 1");		
+			$usr = 1;
+		} else {		
+		$msg = "server offline";
+	} //end of if
+	
+	if(mysqli_num_rows($result)==1){
+        echo "You Have Successfully Logged in";
+		switch ($usr) {
+			case 1:
+				header("location: teller/");
+				break;
+			case 2:
+				header("location: attendant/");
+				break;
+			case 2:
+				header("location: manager/");
+				break;
+			default:
+				$msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
+}//end switch
+        exit();
+    }
+    else{
+        $msg = "<span class='login_error'>You Have Entered Incorrect credentials</span>";
+		$_SESSION['message'] = $msg;
+		header("location: index.php");
+		exit();
+    } 
+}//end very big if
+	
+}	//end of bigger if
+
+
+
+?>
 
 <html>
 	<head>
@@ -14,13 +72,12 @@
 			<hr>
 			
 			<?php
-				require_once 'index.php';
 				if (isset($_SESSION['message'])){
 					echo $_SESSION['message'];
                     unset($_SESSION['message']);
 				} else {
-					echo "LOGIN TO CONTINUE!";
-				}
+					echo "Enter Username and Password to continue";
+				} //endif
 				?>
 			<form method=POST action=index.php>
 				Enter Username<br>
@@ -39,45 +96,7 @@
 	
 	</body>
 </html>
-<?php
-$msg = 'Log in to continue';
-/*$host = "localhost"; $user="root"; $password="morris"; $db = "dacco";
-	mysqli_connect($host,$user,$password, $db);*/
-$mysqli = new mysqli("localhost", "root", "morris", "sacco") or die(mysqli_error($mysqli));
-	
-if (ISSET ($_POST['login']) && !empty ($_POST['username']) && !empty('password') && !empty($_POST['logger'])){
-	//get them variables
-	$uname = $_POST['username'];
-	$passwd = $_POST['password'];
-	$tbl = $_POST['logger'];
-	
-	//check who is logging in
-	if($tbl == 1){
-		$result = $mysqli -> query ("select * from teller where Teller_Fname='".$uname."'AND TellerPass='".$passwd."' limit 1");	
-		} elseif ($tbl == 2){
-			$result = $mysqli -> query("select * from attendant where AttendantFname='".$uname."'AND AttendantPass='".$passwd."' limit 1");		
-		} elseif ($tbl == 3){
-			$result = $mysqli -> query("select * from boss where UserName='".$uname."'AND Password='".$passwd."' limit 1");		
-		} else {		
-		$msg = "server offline";
-	} //end of if
-	
-	if(mysqli_num_rows($result)==1){
-        echo "You Have Successfully Logged in";
-        exit();
-    }
-    else{
-        $msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
-		$_SSESSION['message'] = 'You Have Entered Incorrect Username/Password';//$msg;
-		echo $msg;
-        header("location: index.php");
-		echo $msg;
-		exit();
-    } 
-}
 
-
-?>
 
 
 
