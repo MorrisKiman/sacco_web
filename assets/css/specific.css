@@ -8,6 +8,90 @@
 	text-align:center;
 }
 .login_error{
-	color = #2a3132
+	color: #00000;
 }
+
+.header_div{
+	background-color: #004445;
+	margin:0px 0px;
+	vertical-align: top;
+	padding: 17px;
+	display:block;
+	height: 60px;
+	color: white;
+	margin-left: auto;
+        margin-right: auto;
+}
+
+.page_title{
+	float: left;
+	font-size: 42px;
+}
+
+.page_proile{
+	float: right;
+}
+
+/*side navigation bar css*/
+.side_nav_bar {
+  margin:0px 0px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #004445;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.side_nav_bar a {
+  /*padding: 8px 8px 8px 32px;*/
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.side_nav_bar a:hover {
+  color: #f1f1f1;
+}
+
+.side_nav_bar .closebtn {
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 0px;
+}
+
+.openbtn {
+  cursor: pointer;
+}
+
+.openbtn:hover {
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .side_nav_bar {padding-top: 15px;}
+  .side_nav_bar a {font-size: 18px;}
+}
+/*side navigation bar css*/
+
+/*body ino css*/
+.body_content{
+	vertical-align: top;
+	border: 15px solid red;
+	height:;
+}
+/*body ino css*/
 

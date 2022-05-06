@@ -12,10 +12,16 @@
 		<div>
 			<h1 class=login_h1>LOCA SACCO LOGIN</h1>
 			<hr>
-			Log in to continue 
+			
 			<?php
-			$msg = '';
-				echo $msg?>
+				require_once 'index.php';
+				if (isset($_SESSION['message'])){
+					echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+				} else {
+					echo "LOGIN TO CONTINUE!";
+				}
+				?>
 			<form method=POST action=index.php>
 				Enter Username<br>
 				<input class="login_input" type=text placeholder="Username" name="username" required ><br><br>
@@ -33,9 +39,8 @@
 	
 	</body>
 </html>
-
 <?php
-$msg = '';
+$msg = 'Log in to continue';
 /*$host = "localhost"; $user="root"; $password="morris"; $db = "dacco";
 	mysqli_connect($host,$user,$password, $db);*/
 $mysqli = new mysqli("localhost", "root", "morris", "sacco") or die(mysqli_error($mysqli));
@@ -58,18 +63,22 @@ if (ISSET ($_POST['login']) && !empty ($_POST['username']) && !empty('password')
 	} //end of if
 	
 	if(mysqli_num_rows($result)==1){
-        echo " You Have Successfully Logged in";
+        echo "You Have Successfully Logged in";
         exit();
     }
     else{
-        $msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";        
+        $msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
+		$_SSESSION['message'] = 'You Have Entered Incorrect Username/Password';//$msg;
+		echo $msg;
         header("location: index.php");
+		echo $msg;
 		exit();
     } 
 }
 
 
 ?>
+
 
 
 
