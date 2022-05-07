@@ -9,7 +9,6 @@
 }
 .login_error{
 	color: red;
-	border:3px dotted;
 }
 
 .header_div{
@@ -67,6 +66,7 @@
   right: 25px;
   font-size: 36px;
   margin-left: 0px;
+  font-family:monospace;
 }
 
 .openbtn {
@@ -87,7 +87,11 @@
   .side_nav_bar a {font-size: 18px;}
 }
 /*side navigation bar css*/
+/*
+wQ[>/kf@+5]t?<4r
+id18894292_sacco
 
+*/
 /*body ino css*/
 .body_content{
 	vertical-align: top;

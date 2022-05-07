@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$usr = 2;
 		} elseif ($tbl == 3){
 			$result = $mysqli -> query("select * from boss where UserName='".$uname."'AND Password='".$passwd."' limit 1");		
-			$usr = 1;
+			$usr = 3;
 		} else {		
 		$msg = "server offline";
 	} //end of if
@@ -35,16 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			case 2:
 				header("location: attendant/");
 				break;
-			case 2:
+			case 3:
 				header("location: manager/");
 				break;
 			default:
-				$msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
+				$msg = "<span class='login_error'>You Have Entered Incorrect credentials</span>";
 }//end switch
         exit();
     }
     else{
-        $msg = "<span class='login_error'>You Have Entered Incorrect credentials</span>";
+        $msg = "<span class='login_error'>You Have Entered Incorrect Credentials</span>";
 		$_SESSION['message'] = $msg;
 		header("location: index.php");
 		exit();
