@@ -1,3 +1,44 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/specific.css">
+	</head>
+	
+	<body>
+		<div>
+			<img src="assets/images/loca_logo.png" width="420" height="420">
+		</div>
+		<div>
+			<h1 class=login_h1>LOCA SACCO LOGIN</h1>
+			<hr>
+			
+			<?php
+				if (isset($_SESSION['message'])){
+					echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+				} else {
+					echo "Enter Username and Password to continue";
+				} //endif
+				?>
+			<form method=POST action=index.php>
+				Enter Username<br>
+				<input class="login_input" type=text placeholder="Username" name="username" required ><br><br>
+				Select User<br>
+				<select class="login_input" name="logger">
+					<option value=1>Teller</option>
+					<option value=2>Attendant</option>
+					<option value=3>Manager</option>
+				</select><br><br>
+				Enter Password<br>
+				<input class="login_input" type=password placeholder="Password" name="password" required ><br><br>
+				<button class="login_input" type=submit name="login">Login</button>
+			</form>
+		</div>
+	
+	</body>
+</html>
+
+
 <?php
 require_once 'index.php';
 session_start();
@@ -56,48 +97,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 ?>
-
-<html>
-	<head>
-		<link rel="stylesheet" href="assets/css/main.css">
-		<link rel="stylesheet" href="assets/css/specific.css">
-	</head>
-	
-	<body>
-		<div>
-			<img src="assets/images/loca_logo.png" width="420" height="420">
-		</div>
-		<div>
-			<h1 class=login_h1>LOCA SACCO LOGIN</h1>
-			<hr>
-			
-			<?php
-				if (isset($_SESSION['message'])){
-					echo $_SESSION['message'];
-                    unset($_SESSION['message']);
-				} else {
-					echo "Enter Username and Password to continue";
-				} //endif
-				?>
-			<form method=POST action=index.php>
-				Enter Username<br>
-				<input class="login_input" type=text placeholder="Username" name="username" required ><br><br>
-				Select User<br>
-				<select class="login_input" name="logger">
-					<option value=1>Teller</option>
-					<option value=2>Attendant</option>
-					<option value=3>Manager</option>
-				</select><br><br>
-				Enter Password<br>
-				<input class="login_input" type=password placeholder="Password" name="password" required ><br><br>
-				<button class="login_input" type=submit name="login">Login</button>
-			</form>
-		</div>
-	
-	</body>
-</html>
-
-
-
-
-

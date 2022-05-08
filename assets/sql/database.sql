@@ -153,8 +153,13 @@ INSERT INTO teller (TellerID, Teller_Fname, Teller_Sname, TellerPass, Contacts) 
 
 CREATE DATABASE test DEFAULT CHARSET latin1;
 
-USE test;
-
--- [Table t1 is empty]
-
--- [Table t3 is empty]
+--table for inhouse messaging
+create table messages(
+	msg_id int not null auto_increment primary key,
+	msg_title varchar(100),
+	msg_content varchar(2000) not null,
+	msg_status varchar(1) default "0",
+	msa_response varchar(2000),
+	mag_sender varchar(11),
+	msg_recepient varchar(11)
+);
