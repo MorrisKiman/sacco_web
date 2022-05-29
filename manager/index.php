@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>LOCA: Teller</title>
+		<title>LOCA</title>
 		<link rel="stylesheet" href="../assets/css/main.css">
 		<link rel="stylesheet" href="../assets/css/specific.css">
 		<script src="../assets/JavaScript/general.js"></script>
@@ -12,14 +12,18 @@
 			<div class="header_div">
 				<span class="page_title">
 					<img src="../assets/images/loca_logo.png" width="42" height="42" class="openbtn" onclick="openNav()">
-					LOCA<br>
+					LOCA: Home<br>
 						<span >
 				<div class = "side_nav_bar" id="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
-					<a href="#">Item 1</a><br>
-					<a href="#">Item 2</a><br>
-					<a href="#">Item 3</a><br>
-					<a href="#">Item 4</a><br>
+					<a href="addTeller.php">Add New Teller</a><br>
+					<a href="#">Add New Attendant</a><br>
+					<a href="#">Accounts Reports</a><br>
+					<a href="#">Loans Reports</a><br>
+					<a href="#">Remove Teller</a><br>
+					<a href="#">Remove Attendant</a><br>
+					<a href="#">My Account</a><br>
+					<a href="#">Messages</a><br>
 				</div>
 				<!-- <div id="main">
 					<button class="openbtn" onclick="openNav()">=</button>  

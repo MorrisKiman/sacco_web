@@ -13,6 +13,7 @@
 			<hr>
 			
 			<?php
+				session_start();
 				if (isset($_SESSION['message'])){
 					echo $_SESSION['message'];
                     unset($_SESSION['message']);
@@ -20,7 +21,7 @@
 					echo "Enter Username and Password to continue";
 				} //endif
 				?>
-			<form method=POST action=index.php>
+			<form method=POST action=index.php class="login_form">
 				Enter Username<br>
 				<input class="login_input" type=text placeholder="Username" name="username" required ><br><br>
 				Select User<br>
@@ -41,11 +42,11 @@
 
 <?php
 require_once 'index.php';
-session_start();
+//session_start();
 $usr = 0;
 $msg = "<br><span class=login_error>You Have Entered Incorrect Username/Password</span>";
 
-$mysqli = new mysqli("localhost", "root", "morris", "sacco") or die(mysqli_error($mysqli));
+$mysqli = new mysqli("localhost", "root", "WaterSprayer", "sacco") or die(mysqli_error($mysqli));
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	if (ISSET ($_POST['login']) && !empty ($_POST['username']) && !empty('password') && !empty($_POST['logger'])){
 	//get them variables
@@ -64,8 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$result = $mysqli -> query("select * from boss where UserName='".$uname."'AND Password='".$passwd."' limit 1");		
 			$usr = 3;
 		} else {		
-		$msg = "server offline";
+		
 	} //end of if
+	echo mysqli_num_rows($result);
 	
 	if(mysqli_num_rows($result)==1){
         echo "You Have Successfully Logged in";
@@ -81,15 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				break;
 			default:
 				$msg = "<span class='login_error'>You Have Entered Incorrect credentials</span>";
-}//end switch
+		}//end switch
         exit();
-    }
-    else{
+    } else {
         $msg = "<span class='login_error'>You Have Entered Incorrect Credentials</span>";
 		$_SESSION['message'] = $msg;
 		header("location: index.php");
 		exit();
-    } 
+    }//end of case if 
 }//end very big if
 	
 }	//end of bigger if
