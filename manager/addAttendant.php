@@ -17,7 +17,7 @@
 				<div class = "side_nav_bar" id="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
 					<a href="index.php">Home</a><br>
-					<a href="addAttendant.php">Add New Attendant</a><br>
+					<a href="addTeller.php">Add New Teller</a><br>
 					<a href="#">Accounts Reports</a><br>
 					<a href="#">Loans Reports</a><br>
 					<a href="#">Remove Teller</a><br>
@@ -46,8 +46,8 @@
 		<div class="body_content">
 		
 				<div class="data_card">
-					<form method="POST" action="addTeller.php" class="data_entry">	
-						<h2>Add New Teller</h2>
+					<form method="POST" action="addAttendant.php" class="data_entry">	
+						<h2>Add New Attendant</h2>
 						<?php
 							session_start();
 							
@@ -60,16 +60,16 @@
 							}//end if
 						?>
 						Teller's ID/Passport Number<br>
-						<input class="login_input" type=text placeholder="ID/Passport Number" name="TIDNo" required maxlength=10><br><br>
+						<input class="login_input" type=text placeholder="ID/Passport Number" name="AtIDNo" required maxlength=10><br><br>
 						
 						Teller's First Name<br>
-						<input class="login_input" type=text placeholder="Teller First Name" name="TFName" required ><br><br>
+						<input class="login_input" type=text placeholder="Teller First Name" name="AtFName" required ><br><br>
 						
 						Teller's Other Names<br>
-						<input class="login_input" type=text placeholder="Teller Other Names" name="TONames" required ><br><br>
+						<input class="login_input" type=text placeholder="Teller Other Names" name="AtONames" required ><br><br>
 						
 						Teller's Tel. No.
-						<input class="login_input" type=text placeholder="Tel. No." name="TPhoneNo" required maxlength=13><br><br>
+						<input class="login_input" type=text placeholder="Tel. No." name="AtPhoneNo" required maxlength=13><br><br>
 						<button class="login_input" type=submit name="login">Save</button>
 					</form>
 				</div>			
@@ -83,19 +83,19 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		//get data
-		$id = 330126;
-		$idNo = $_POST['TIDNo'];
-		$fName = $_POST['TFName'];
-		$oNames = $_POST['TONames'];
-		$telNo = $_POST['TPhoneNo'];
+		//$id = 130126;
+		$idNo = $_POST['AtIDNo'];
+		$fName = $_POST['AtFName'];
+		$oNames = $_POST['AtONames'];
+		$telNo = $_POST['AtPhoneNo'];
 		
 		//insert the record
 		
-		$mysqli -> query("INSERT INTO teller(TellerIDNo,Teller_Fname,Teller_Sname,Contacts) values('$idNo','$fName','$oNames','$telNo')") or
+		$mysqli -> query("INSERT INTO attendant(AttendantIDNo,AttendantFname,AttendantLname,Contacts) values('$idNo','$fName','$oNames','$telNo')") or
 					die($mysqli -> error);
 		//send cool message
-		$_SESSION['message'] ="<span class='login_error'>Teller " . $fName . " added successfully</span><br>";
-		header("location: addTeller.php");
+		$_SESSION['message'] ="<span class='login_error'>Attendant " . $fName . " added successfully</span><br>";
+		header("location: addAttendant.php");
 		
 		
 	}//END VERY BIG IF
