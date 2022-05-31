@@ -1,0 +1,9 @@
+<a href="index.php">Home</a><br>
+					<a href="addTeller.php">Add Teller</a>
+					<a href="addAttendant.php">Add New Attendant</a><br>
+					<a href="accountReports.php">Accounts Reports</a><br>
+					<a href="loanReports.php">Loans Reports</a><br>
+					<a href="viewTeller.php">View Tellers</a><br>
+					<a href="viewAttendant.php">View Attendants</a><br>
+					<a href="myAccount.php">My Account</a><br>
+					<a href="messages.php">Messages</a><br>

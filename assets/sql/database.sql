@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS savings (
   Account_Value decimal(10,0) DEFAULT NULL,
   MemberID int(40) NOT NULL,
   Date_created date NOT NULL,
-  Date_Deposited date NOT NULL, --most recent date of deposit
+  Date_Deposited date NOT NULL,
   PRIMARY KEY (AccountID),
   FOREIGN KEY (MemberID) REFERENCES members(MemberID)
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
@@ -143,7 +143,12 @@ INSERT INTO teller (TellerID, TellerIDNo, Teller_Fname, Teller_Sname, TellerPass
 (330130, '5111477895', 'Freddie', 'Evans Owen', '1234567', '+125010025488'),
 (330131, 'BK74101002', 'Elsie', 'Mitchell Reece', '1234567', '+446654130714'),
 (330132, 'AF74101002', 'Arlene', 'Phoebe Collins', '1234567', '+550093473754'),
-(330133, 'BD07130789', 'Erin', 'Hughes Reids', '1234567', '+405436546513');
+(330133, 'BD07130789', 'Erin', 'Hughes Reids', '1234567', '+405436546513'),
+(330135, 'AK86299633', 'Adele', 'Ellis White', '1234567', '+232881989249'),
+(330136, '4308961099', 'Carlie', 'Isaac Watson', '1234567', '+219610421029'),
+(330137, 'BH09388655', 'Michael', 'Jacob Khan', '1234567', '+254887561093'),
+(330138, 'AK61874409', 'Thompson', 'Kirsten Thompson', '1234567', '+448875616161'),
+(330139, 'BB81861578', 'Elizabeth', 'Kirsten Smith', '1234567', '+660991243624');
 
 --2. Attendants
 INSERT INTO attendant (AttendantID, AttendantIDNo, AttendantFname, AttendantLname, AttendantPass, Contacts) VALUES
@@ -154,7 +159,9 @@ INSERT INTO attendant (AttendantID, AttendantIDNo, AttendantFname, AttendantLnam
 (130130, 'KL0914244Y', 'Emily', 'Bruce Owen', '1234567', '+376376376376'),
 (130131, '5111114347', 'Graham', 'Nick Harrison', '1234567', '+254434709887'),
 (130132, 'BB00009873', 'Campbell', 'Alice Jackson', '1234567', '+253998346672'),
-(130133, '9799182712', 'Max', 'Adrian Shaw', '1234567', '+446799182712');
+(130133, '9799182712', 'Max', 'Adrian Shaw', '1234567', '+446799182712'),
+(130134, '1198418036', 'Adam', 'Fred Stewart', '1234567', '+880180366744'),
+(130135, 'AC59718622', 'Eliza', 'Tina Moore', '1234567', '+354408629963');
 
 --ALTER TABLE teller ADD TellerIDNo VARCHAR(50) NOT NULL AFTER TellerID;
 --ALTER TABLE teller ADD UNIQUE(TellerIDNo);

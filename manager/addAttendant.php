@@ -17,13 +17,13 @@
 				<div class = "side_nav_bar" id="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
 					<a href="index.php">Home</a><br>
-					<a href="addTeller.php">Add New Teller</a><br>
-					<a href="#">Accounts Reports</a><br>
-					<a href="#">Loans Reports</a><br>
-					<a href="#">Remove Teller</a><br>
-					<a href="#">Remove Attendant</a><br>
-					<a href="#">My Account</a><br>
-					<a href="#">Messages</a><br>
+					<a href="addTeller.php">Add Teller</a><br>
+					<a href="accountReports.php">Accounts Reports</a><br>
+					<a href="loanReports.php">Loans Reports</a><br>
+					<a href="viewTeller.php">View Tellers</a><br>
+					<a href="viewAttendant.php">View Attendants</a><br>
+					<a href="myAccount.php">My Account</a><br>
+					<a href="messages.php">Messages</a><br>
 				</div>
 				<!-- <div id="main">
 					<button class="openbtn" onclick="openNav()">=</button>  
@@ -59,16 +59,16 @@
 								
 							}//end if
 						?>
-						Teller's ID/Passport Number<br>
+						Attendant's ID/Passport Number<br>
 						<input class="login_input" type=text placeholder="ID/Passport Number" name="AtIDNo" required maxlength=10><br><br>
 						
-						Teller's First Name<br>
+						Attendant's First Name<br>
 						<input class="login_input" type=text placeholder="Teller First Name" name="AtFName" required ><br><br>
 						
-						Teller's Other Names<br>
+						Attendant's Other Names<br>
 						<input class="login_input" type=text placeholder="Teller Other Names" name="AtONames" required ><br><br>
 						
-						Teller's Tel. No.
+						Attendant's Tel. No.
 						<input class="login_input" type=text placeholder="Tel. No." name="AtPhoneNo" required maxlength=13><br><br>
 						<button class="login_input" type=submit name="login">Save</button>
 					</form>

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>LOCA</title>
+		<title>LOCA: Manager</title>
 		<link rel="stylesheet" href="../assets/css/main.css">
 		<link rel="stylesheet" href="../assets/css/specific.css">
 		<script src="../assets/JavaScript/general.js"></script>
@@ -12,15 +12,15 @@
 			<div class="header_div">
 				<span class="page_title">
 					<img src="../assets/images/loca_logo.png" width="42" height="42" class="openbtn" onclick="openNav()">
-					LOCA: Home<br>
+					LOCA<br>
 						<span >
 				<div class = "side_nav_bar" id="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+					<a href="index.php">Home</a><br>
 					<a href="addTeller.php">Add Teller</a><br>
 					<a href="addAttendant.php">Add New Attendant</a><br>
 					<a href="accountReports.php">Accounts Reports</a><br>
 					<a href="loanReports.php">Loans Reports</a><br>
-					<a href="viewTeller.php">View Tellers</a><br>
 					<a href="viewAttendant.php">View Attendants</a><br>
 					<a href="myAccount.php">My Account</a><br>
 					<a href="messages.php">Messages</a><br>
@@ -44,49 +44,49 @@
 		</div>
 		
 		<div class="body_content">
-		
-				<div class="ino_card">
-					<h2>Active Tellers</h2><hr>
-					get<br>information<br>from<br>the DB
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-				
-				<div class="ino_card">
-					<h2>Card Header</h2><hr>
-					Card inormation
-				</div>
-			
-		</div>
-		
+			<?php
+				$mysqli = new mysqli("localhost", "root", "WaterSprayer", "sacco") or die(mysqli_error($mysqli));
+				$result = $mysqli -> query("SELECT * FROM teller") or die($mysqli->error);
+			?>
+			<?php
+                    $row = $result -> fetch_assoc();
+					if ($row == null){
+						echo "<h1>NO DATA FOUND!</h1>";
+					}
+					while ($row = $result -> fetch_assoc()):
+				?>
+                   <div class="ino_card">
+						<h3>Teller <?php echo $row['TellerID']; ?></h3><hr>
+						<span class="data_label">ID/Passport: </span><span class="data_label2"><?php echo $row['TellerIDNo']; ?></span><br><br>
+						<span class="data_label">First Name: </span><span class="data_label2"><?php echo $row['Teller_Fname']; ?></span><br><br>
+						<span class="data_label">Other Names: </span><br><span class="data_label2"><?php echo $row['Teller_Sname']; ?></span><br><br>
+						<span class="data_label">Contacts: </span><span class="data_label2"><?php echo $row['Contacts']; ?></span><br>
+					</div>
+            <?php endwhile; ?> 
+		</div>	
 	
 	</body>
 </html>
+
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

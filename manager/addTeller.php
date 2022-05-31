@@ -18,12 +18,12 @@
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
 					<a href="index.php">Home</a><br>
 					<a href="addAttendant.php">Add New Attendant</a><br>
-					<a href="#">Accounts Reports</a><br>
-					<a href="#">Loans Reports</a><br>
-					<a href="#">Remove Teller</a><br>
-					<a href="#">Remove Attendant</a><br>
-					<a href="#">My Account</a><br>
-					<a href="#">Messages</a><br>
+					<a href="accountReports.php">Accounts Reports</a><br>
+					<a href="loanReports.php">Loans Reports</a><br>
+					<a href="viewTeller.php">View Tellers</a><br>
+					<a href="viewAttendant.php">View Attendants</a><br>
+					<a href="myAccount.php">My Account</a><br>
+					<a href="messages.php">Messages</a><br>
 				</div>
 				<!-- <div id="main">
 					<button class="openbtn" onclick="openNav()">=</button>  

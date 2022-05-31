@@ -129,6 +129,7 @@ id18894292_sacco
 
 .ino_card:hover{
 	font-family: monospace;
+	width:350px;
 }
 
 .data_entry{
@@ -150,6 +151,23 @@ id18894292_sacco
 	/*width: 300px;
 	height: 400px; */
 }
+
+.data_label{
+	/*for the data labels within the ino card class div*/
+	float:center;
+}
+
+.data_label2{
+	/*For the data we get from the db*/
+	float: center;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+/*.data_label2 .ino_card:hover{
+	For the data we get from the db
+	float: center;
+}*/
 
 
 /*body ino css*/
